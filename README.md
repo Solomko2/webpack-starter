@@ -49,13 +49,6 @@ or
 $ npm i
 ```
 
-#### Create project
-
-```
-$ run the kickstart command
-$ yarn kickstart
-```
-
 #### Development servers (webpack-dev-server)
 
 ```
