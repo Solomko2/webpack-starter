@@ -1,5 +1,5 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": "stylelint-scss",
   "rules": {
     "string-quotes": "single",
     "no-duplicate-selectors": true,
