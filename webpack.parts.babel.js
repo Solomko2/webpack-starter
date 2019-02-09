@@ -39,8 +39,6 @@ exports.loadPug = (options) => ({
       {
         test: /\.pug$/,
         loaders: [{
-          loader: 'apply-loader'
-        }, {
           loader: 'pug-loader',
           options
         }]
