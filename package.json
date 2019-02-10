@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.babel.js --mode production",
     "build:dev": "webpack --config webpack.prod.babel.js --mode development",
-    "start": "webpack-dev-server --config webpack.dev.babel.js --open --hot --inline --mode development"
+    "start": "webpack-dev-server --config webpack.dev.babel.js --mode development"
   },
   "keywords": [],
   "author": "",
@@ -44,7 +44,6 @@
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14",
-    "webpack-md5-hash": "0.0.6",
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {

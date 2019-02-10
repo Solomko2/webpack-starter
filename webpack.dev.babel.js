@@ -13,8 +13,11 @@ const commonConfig = merge([
       port: 9001,
       contentBase: paths.build,
       compress: true,
-      hot: true,
-      inline: true
+      inline: true,
+      watchContentBase: true,
+      watchOptions: {
+        ignored: /node_modules/
+      }
     },
     node: {
       fs: 'empty'
