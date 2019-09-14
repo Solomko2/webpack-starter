@@ -27,12 +27,7 @@ const commonConfig = merge([
         {
           test: /\.(scss|css)$/,
           use: [
-            {
-              loader: 'style-loader',
-              options: {
-                sourceMap: true
-              }
-            },
+            'style-loader',
             {
               loader: 'css-loader',
               options: {
@@ -42,9 +37,7 @@ const commonConfig = merge([
             {
               loader: 'sass-loader',
               options: {
-                outputStyle: 'expanded',
-                sourceMap: true,
-                sourceMapContents: true
+                sourceMap: true
               }
             }
           ]
@@ -68,7 +61,8 @@ const commonConfig = merge([
   parts.loadJS({
     include: paths.src,
     exclude: /node_modules/
-  })
+  }),
+  parts.copyImages()
 ]);
 
 module.exports = commonConfig;

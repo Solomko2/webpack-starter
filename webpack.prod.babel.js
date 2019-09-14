@@ -1,5 +1,5 @@
 'use strict';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
@@ -42,9 +42,7 @@ const commonConfig = merge([
               {
                 loader: 'sass-loader',
                 options: {
-                  outputStyle: 'expanded',
-                  sourceMap: true,
-                  sourceMapContents: true
+                  sourceMap: true
                 }
               }
             ],
@@ -61,7 +59,7 @@ const commonConfig = merge([
       ]
     },
     plugins: [
-      new CleanWebpackPlugin(paths.build),
+      new CleanWebpackPlugin(),
       new ExtractTextPlugin('styles.[md5:contenthash:hex:20].css', {
         allChunks: true
       }),
@@ -86,7 +84,8 @@ const commonConfig = merge([
   parts.loadJS({
     include: paths.src,
     exclude: /node_modules/
-  })
+  }),
+  parts.copyImages()
 ]);
 
 module.exports = commonConfig;
