@@ -1,4 +1,4 @@
-# selecto/webpack-starter
+#webpack-starter
 
 A simple webpack 4 starter project for your basic web development needs.
 
