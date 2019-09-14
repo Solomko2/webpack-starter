@@ -1,5 +1,6 @@
 import fs from 'fs';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import path from 'path';
 import * as R from 'ramda';
 
@@ -32,6 +33,18 @@ exports.getPaths = ({
     staticDir
   });
 };
+
+exports.copyImages = () => ({
+  plugins: [
+    new CopyPlugin([
+      {
+        from: 'images/**/*',
+        to: './',
+        context: 'src/assets/'
+      }
+    ])
+  ]
+});
 
 exports.loadPug = (options) => ({
   module: {
@@ -69,7 +82,7 @@ exports.loadJS = ({ include, exclude } = {}) => ({
         exclude,
         loader: 'babel-loader',
         options: {
-          presets: ['env']
+          presets: ['@babel/preset-env']
         }
       }
     ]
