@@ -1,6 +1,6 @@
 'use strict';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import StyleLintPlugin from 'stylelint-webpack-plugin';
 import merge from 'webpack-merge';
@@ -25,29 +25,29 @@ const commonConfig = merge([
       rules: [
         {
           test: /\.(scss|css|sass)$/,
-          use: ExtractTextPlugin.extract({
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  sourceMap: true
-                }
-              },
-              {
-                loader: 'postcss-loader',
-                options: {
-                  sourceMap: true
-                }
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: true
-                }
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
               }
-            ],
-            fallback: 'style-loader'
-          })
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
+          ]
         },
         {
           test: /\.(gif|png|jpe?g|svg)$/i,
@@ -60,8 +60,11 @@ const commonConfig = merge([
     },
     plugins: [
       new CleanWebpackPlugin(),
-      new ExtractTextPlugin('styles.[md5:contenthash:hex:20].css', {
-        allChunks: true
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+        allChunks: true,
+        ignoreOrder: false
       }),
       new StyleLintPlugin({
         syntax: 'scss'
