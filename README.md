@@ -28,12 +28,12 @@ A simple webpack 4 starter project for your basic web development needs.
 
 ### <a name="installation"> Installation
 
-You can install **`selecto/webpack-starter`** by simply forking the repo:
+You can install **`webpack-starter`** by simply forking the repo:
 
 ```
 # clone the repo
 $ git clone https://github.com/...
-$ cd selecto-webpack-starter
+$ cd webpack-starter
 ```
 
 ### <a name="development-builds"> Development & Builds
